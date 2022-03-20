@@ -1,0 +1,37 @@
+default_language_version:
+  python: python3.8
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: mixed-line-ending
+      - id: check-added-large-files
+        name: Check for added large files
+        description: Prevent giant files from being committed
+        entry: check-added-large-files
+        language: python
+        args: ['--maxkb=512']
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.8.0
+    hooks:
+      - id: isort
+        args: ['--skip docker']
+        name: Format imports
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8
+        name: Check PEP8
+        args: [
+            '--exclude=docker/*,scripts/xxx,.git,__pycache__,docs,old,build,dist',
+            '--ignore=E121,E123,E126,E226,E24,E704,E741,W503,W504,F401,W391',
+            '--max-line-length=199',
+            '--max-doc-length=199'
+            ]

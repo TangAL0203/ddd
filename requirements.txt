@@ -1,0 +1,16 @@
+six
+lmdb
+addict
+tqdm
+msgpack-python
+opencv-python
+pyntcloud
+pycocotools==2.0.2
+pre-commit
+pytest
+pycodestyle
+pytest-pythonpath
+isort
+ruamel.yaml
+trimesh
+open3d
